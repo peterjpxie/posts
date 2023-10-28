@@ -1,7 +1,13 @@
 from PIL import Image, ImageDraw
 import face_recognition
+import argparse
 
-image_file = 'obama.jpg' 
+argparser = argparse.ArgumentParser('Find facial landmarks')
+argparser.add_argument('-i', '--image_file', default='obama.jpg', help='Image file to find facial landmarks')
+args = argparser.parse_args()
+
+image_file = args.image_file
+# image_file = 'obama.jpg'
 
 # Load the jpg file into a numpy array
 image = face_recognition.load_image_file(image_file)
@@ -37,5 +43,7 @@ for face_landmarks in face_landmarks_list:
         d.line(face_landmarks[facial_feature], width=5)
 
 # Display drawed image
-pil_image.save('out.jpg')
+out_file = 'out_' + image_file
+print('saved to ' + out_file)
+pil_image.save(out_file)
 # pil_image.show()
