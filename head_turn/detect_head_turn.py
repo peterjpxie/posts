@@ -65,7 +65,7 @@ for face_landmarks in face_landmarks_list:
 
     # Add the text to the image
     # x is the position of nose top
-    position = (face_landmarks["nose_bridge"][0][0] - 50, face_landmarks["nose_bridge"][0][1] - 200)
+    position = (face_landmarks["nose_bridge"][0][0] - 100, face_landmarks["nose_bridge"][0][1] - 200)
     # Define the font and font size
     font = ImageFont.truetype("arial.ttf", size=60)
 
