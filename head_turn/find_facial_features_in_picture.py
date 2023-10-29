@@ -36,11 +36,14 @@ for face_landmarks in face_landmarks_list:
     ]
 
     for facial_feature in facial_features:
-        print("The {} in this face has the following points: {}".format(facial_feature, face_landmarks[facial_feature]))
+        print("The {} in this face has the following {} points: {}".format(facial_feature, len(face_landmarks[facial_feature]), face_landmarks[facial_feature]))
 
     # Let's trace out each facial feature in the image with a line!
-    for facial_feature in facial_features:
-        d.line(face_landmarks[facial_feature], width=5)
+    # for facial_feature in facial_features:
+    #     d.line(face_landmarks[facial_feature], width=5)
+
+    all_landmarks_points = [(485, 560), (491, 647), (499, 736), (517, 823), (547, 907), (595, 983), (656, 1050), (728, 1101), (815, 1112), (904, 1092), (975, 1035), (1037, 964), (1085, 887), (1111, 806), (1125, 722), (1130, 639), (1131, 560), (554, 528), (593, 480), (651, 459), (714, 460), (776, 475), (868, 475), (926, 457), (989, 455), (1048, 478), (1083, 524), (821, 531), (821, 587), (821, 643), (821, 703), (738, 734), (778, 744), (820, 754), (862, 742), (903, 730), (628, 551), (662, 533), (698, 530), (735, 550), (698, 554), (662, 556), (907, 548), (943, 528), (980, 530), (1016, 549), (980, 554), (943, 552), (656, 832), (708, 810), (773, 804), (819, 811), (863, 801), (926, 805), (981, 823), (930, 891), (868, 926), (821, 932), (772, 928), (709, 899), (671, 835), (773, 824), (819, 830), (864, 822), (964, 827), (866, 884), (820, 892), (773, 886)]        
+    d.line(all_landmarks_points, width=5, fill=(255, 0, 0))
 
 # Display drawed image
 out_file = 'out_' + image_file
