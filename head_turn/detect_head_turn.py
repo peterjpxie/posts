@@ -5,13 +5,14 @@ Detect head turn
 from PIL import Image, ImageDraw, ImageFont
 import face_recognition
 import argparse
+import math
 
-argparser = argparse.ArgumentParser("Find facial landmarks")
+argparser = argparse.ArgumentParser("Detect head turn")
 argparser.add_argument(
     "-i",
     "--image_file",
     default="obama.jpg",
-    help="Image file to find facial landmarks",
+    help="Image file to detect head turn",
 )
 args = argparser.parse_args()
 
@@ -24,7 +25,7 @@ image = face_recognition.load_image_file(image_file)
 # Find all facial features in all the faces in the image
 face_landmarks_list = face_recognition.face_landmarks(image)
 num_faces = len(face_landmarks_list)
-print(f"I found {num_faces} face(s) in this photograph.")
+print(f"Found {num_faces} face(s) in this photograph.")
 # Get locations of all the faces in the image
 face_locations = face_recognition.face_locations(image)
 
@@ -51,9 +52,7 @@ def point_distance(p1,p2):
 face_landmarks = face_landmarks_list[0]
 # Let's trace out each facial feature in the image with a line!
 for facial_feature in facial_features:
-    print(
-        f"{facial_feature} has {len(face_landmarks[facial_feature])} points: {face_landmarks[facial_feature]}"
-    )
+    # print(f"{facial_feature} has {len(face_landmarks[facial_feature])} points: {face_landmarks[facial_feature]}")
     d.line(face_landmarks[facial_feature], width=5)
 
 # draw left chin to nose top in green
@@ -61,16 +60,30 @@ d.line(face_landmarks["chin"][-1:] + face_landmarks["nose_bridge"][:1], width=5,
 # draw right chin to nose top in red
 d.line(face_landmarks["chin"][:1] + face_landmarks["nose_bridge"][:1], width=5, fill=(255, 0, 0))
 
-# 
-
+# right / left chin ratio
+left_chin_green = point_distance(face_landmarks["chin"][-1], face_landmarks["nose_bridge"][0])
+right_chin_red = point_distance(face_landmarks["chin"][0], face_landmarks["nose_bridge"][0])
+right_to_left_ratio = right_chin_red / left_chin_green
+left_to_right_ratio = left_chin_green / right_chin_red
 
 ## Add the text to the image
+threshold = 1.3
+if left_to_right_ratio > threshold:
+    turned = "turned right"
+    print(f"green / red = {left_to_right_ratio:.1f}, {turned}")
+elif right_to_left_ratio > threshold:
+    turned = "turned left"
+    print(f"red / green = {right_to_left_ratio:.1f}, {turned}")
+else:
+    turned = "facing straight"
+    print(f"red / green = {right_to_left_ratio:.1f}, {turned}")
+
 top, right, bottom, left = face_locations[0]
 position = (left, top)
 font_size = (right - left) // 6 # relative to face size
 font = ImageFont.truetype("arial.ttf", size=font_size)
 text_color = (0, 0, 255)  # RGB color
-d.text(position, 'hello', fill=text_color, font=font)
+d.text(position, turned, fill=text_color, font=font)
 
 # Save drawed image
 out_file = "out_" + image_file
