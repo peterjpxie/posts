@@ -11,7 +11,7 @@ argparser = argparse.ArgumentParser("Detect head turn")
 argparser.add_argument(
     "-i",
     "--image_file",
-    default="obama.jpg",
+    default="left.jpg",
     help="Image file to detect head turn",
 )
 args = argparser.parse_args()
