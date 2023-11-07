@@ -1,6 +1,11 @@
 #!/usr/bin/env python
 """
-Detect head turn
+Detect head turn with dlib and face_recognition
+
+Algorithm: When turned left, the right chin is bigger than left one, vice versa.
+Use the distance between the right / left chin top and the nose top to measure the right / left chin size.
+
+Usage: python detect_head_turn.py -i image_file
 """
 from PIL import Image, ImageDraw, ImageFont
 import face_recognition
@@ -17,12 +22,11 @@ argparser.add_argument(
 args = argparser.parse_args()
 
 image_file = args.image_file
-# image_file = 'obama.jpg'
 
 # Load the jpg file into a numpy array
 image = face_recognition.load_image_file(image_file)
 
-# Find all facial features in all the faces in the image
+# Find face landmarks of all the faces in the image
 face_landmarks_list = face_recognition.face_landmarks(image)
 num_faces = len(face_landmarks_list)
 print(f"Found {num_faces} face(s) in this photograph.")
@@ -48,7 +52,7 @@ def point_distance(p1,p2):
     """get distance of two points"""
     return math.sqrt( (p1[0] - p2[0])**2 + (p1[1] - p2[1])**2 )
 
-# get landmarks of first face
+# get landmarks of first face, assume there is only one face in the image
 face_landmarks = face_landmarks_list[0]
 # Let's trace out each facial feature in the image with a line!
 for facial_feature in facial_features:
