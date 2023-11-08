@@ -89,7 +89,7 @@ font = ImageFont.truetype("arial.ttf", size=font_size)
 text_color = (0, 0, 255)  # RGB color
 d.text(position, turned, fill=text_color, font=font)
 
-# Save drawed image
+# Save drawn image
 out_file = "out_" + image_file
 print("saved to " + out_file)
 pil_image.save(out_file)
