@@ -1,8 +1,12 @@
 # How to Detect Head Turn with Face Landmarks
-![Featured picture](post_featured_picture.png)
+![Featured picture](images/post_featured_picture.png)
 Photo by [Prince Akachi](https://unsplash.com/@princearkman?utm_source=medium&utm_medium=referral) and [🇸🇮 Janko Ferlič](https://unsplash.com/@itfeelslikefilm?utm_source=medium&utm_medium=referral) on Unsplash
 
-Detecting the orientation of a person's head can be crucial for applications ranging from driver monitoring to interactive avatars and even in security systems. Using face landmarks to detect whether a person's head is turned is an effective method that can be achieved through image processing algorithms. This article provides an overview of how to detect head turn direction using facial landmarks.
+**TLDR**: When turned left, the right chin is bigger than left one, vice versa. Use the distance between the right / left chin top and the nose top to measure the right / left chin size.
+
+I have been using bank and payment app face authentication for years where you will be asked to open mouth, turn your head etc. to authenticate you don't hack with a static photo.
+I figured out how to detect mouth open years ago, but how to detect head had puzzled me for years until recently the idea came to my mind all of a sudden and it is that simple, as shown above, once you know it. There is also another way
+
 
 To start with, we will be using two Python libraries, namely `dlib` and `face_recognition`, to help detect facial features and analyze them to infer head orientation.
 
