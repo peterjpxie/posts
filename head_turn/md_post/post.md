@@ -5,10 +5,9 @@ Photo by [Prince Akachi](https://unsplash.com/@princearkman?utm_source=medium&ut
 **TLDR**: When turned left, the right chin is bigger than left one, vice versa. Use the distance between the right / left chin top and the nose top to measure the right / left chin size.
 
 I have been using bank and payment app face authentication for years where you will be asked to open mouth, turn your head etc. to authenticate you don't hack with a static photo.
-I figured out how to detect mouth open years ago, but how to detect head had puzzled me for years until recently the idea came to my mind all of a sudden and it is that simple, as shown above, once you know it. There is also another way
+I figured out [how to detect mouth open](https://medium.com/towards-data-science/how-to-detect-mouth-open-for-face-login-84ca834dff3b) years ago, but how to detect head had puzzled me for years until recently the idea came to my mind all of a sudden and it is that simple, as shown above, once you know it. Depending on the face landmanks detection library you use, you can also use this method: When turned left, you show your right ear and hide the left one, vise versa.
 
-
-To start with, we will be using two Python libraries, namely `dlib` and `face_recognition`, to help detect facial features and analyze them to infer head orientation.
+To start with, we will be using two Python libraries, namely `dlib` and `face_recognition`, to help detect face landmarks and analyze them to infer head orientation.
 
 ## Setting Up the Environment
 
