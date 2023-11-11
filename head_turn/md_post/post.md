@@ -11,6 +11,15 @@ To start with, we will be using two Python libraries, namely `dlib` and `face_re
 
 [dlib](https://github.com/davisking/dlib) is an open source C++ library for "making real world machine learning and data analysis applications" and it is known for the production ready face detection and recognition. `dlib` also provides Python interface but `face_recognition` wraps it up in a nicer one to help you download the model file automatically and group face landmarks into facial features like eyes, nose, mouth, chin etc.
 
+## Algorithm
+
+3. **Calculate Distances**: Implement a function to calculate the Euclidean distance between two points. Use this to find the distances from the points at the top of the right and left chin to the top of the nose.
+
+    Formula: `Distance = sqrt((x2 - x1)² + (y2 - y1)²)`
+
+4. **Compare Distances**: If the distance on one side is significantly larger than on the other, conclude that the head is turned towards the shorter distance.
+
+
 ## Setting Up the Environment
 
 Before you can detect the head turn, you'll need to have the necessary libraries installed. You'll need `dlib`, a toolkit for making real-world machine learning and data analysis applications, and `face_recognition`, a library that simplifies facial recognition processes.
@@ -23,6 +32,7 @@ pip install face_recognition
 ```
 
 ## Understanding the Code
+> Talk
 
 ```python
 #!/usr/bin/env python
@@ -117,7 +127,7 @@ pil_image.save(out_file)
 
 The provided Python code describes a simple yet effective algorithm based on facial landmarks to detect head orientation. It implies drawing lines from the top of the chin to the top of the nose and comparing their lengths to determine which direction the head is turned.
 
-## Steps to Detect Head Turn
+### Steps
 
 1. **Parse Command-Line Arguments**: Use `argparse` to provide the script with the path to the input image containing the face you want to analyze.
 
