@@ -7,7 +7,9 @@ Photo by [Prince Akachi](https://unsplash.com/@princearkman?utm_source=medium&ut
 I have been using bank and payment app face authentication for years where you will be asked to open mouth, turn your head etc. to authenticate you don't hack with a static photo.
 I figured out [how to detect mouth open](https://medium.com/towards-data-science/how-to-detect-mouth-open-for-face-login-84ca834dff3b) years ago, but how to detect head had puzzled me for years until recently the idea came to my mind all of a sudden and it is that simple, as shown above, once you know it. Depending on the face landmanks detection library you use, you can also use this method: When turned left, you show your right ear and hide the left one, vise versa.
 
-To start with, we will be using two Python libraries, namely `dlib` and `face_recognition`, to help detect face landmarks and analyze them to infer head orientation. [dlib](https://github.com/davisking/dlib) is an open source C++ library for "making real world machine learning and data analysis applications" and it is known for the production ready face detection and recognition. `dlib` also provides Python interface but 
+To start with, we will be using two Python libraries, namely `dlib` and `face_recognition`, to help detect face landmarks and analyze them to infer head orientation. 
+
+[dlib](https://github.com/davisking/dlib) is an open source C++ library for "making real world machine learning and data analysis applications" and it is known for the production ready face detection and recognition. `dlib` also provides Python interface but `face_recognition` wraps it up in a nicer one to help you download the model file automatically and group face landmarks into facial features like eyes, nose, mouth, chin etc.
 
 ## Setting Up the Environment
 
