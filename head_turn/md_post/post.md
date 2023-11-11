@@ -7,7 +7,7 @@ Photo by [Prince Akachi](https://unsplash.com/@princearkman?utm_source=medium&ut
 I have been using bank and payment app face authentication for years where you will be asked to open mouth, turn your head etc. to authenticate you don't hack with a static photo.
 I figured out [how to detect mouth open](https://medium.com/towards-data-science/how-to-detect-mouth-open-for-face-login-84ca834dff3b) years ago, but how to detect head had puzzled me for years until recently the idea came to my mind all of a sudden and it is that simple, as shown above, once you know it. Depending on the face landmanks detection library you use, you can also use this method: When turned left, you show your right ear and hide the left one, vise versa.
 
-To start with, we will be using two Python libraries, namely `dlib` and `face_recognition`, to help detect face landmarks and analyze them to infer head orientation.
+To start with, we will be using two Python libraries, namely `dlib` and `face_recognition`, to help detect face landmarks and analyze them to infer head orientation. [dlib](https://github.com/davisking/dlib) is an open source C++ library for "making real world machine learning and data analysis applications" and it is known for the production ready face detection and recognition. `dlib` also provides Python interface but 
 
 ## Setting Up the Environment
 
@@ -24,14 +24,6 @@ pip install face_recognition
 
 ```python
 #!/usr/bin/env python
-"""
-Detect head turn with dlib and face_recognition
-
-Algorithm: When turned left, the right chin is bigger than left one, vice versa.
-Use the distance between the right / left chin top and the nose top to measure the right / left chin size.
-
-Usage: python detect_head_turn.py -i image_file
-"""
 from PIL import Image, ImageDraw, ImageFont
 import face_recognition
 import argparse
@@ -130,6 +122,9 @@ The provided Python code describes a simple yet effective algorithm based on fac
 2. **Load and Process the Image**: Utilize the `face_recognition` library to load the image and detect the face landmarks.
 
 3. **Calculate Distances**: Implement a function to calculate the Euclidean distance between two points. Use this to find the distances from the points at the top of the right and left chin to the top of the nose.
+
+    Formula: `Distance = sqrt((x2 - x1)² + (y2 - y1)²)`
+
 
 4. **Compare Distances**: If the distance on one side is significantly larger than on the other, conclude that the head is turned towards the shorter distance.
 

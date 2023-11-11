@@ -14,10 +14,10 @@ import dlib
 import argparse
 
 # argparser = argparse.ArgumentParser('Find facial landmarks')
-# argparser.add_argument('-i', '--image_file', default='obama.jpg', help='Image file to find facial landmarks')
+# argparser.add_argument('-i', '--image_file', default='left.jpg', help='Image file to find facial landmarks')
 # args = argparser.parse_args()
 
-image_file = 'obama.jpg' # args.image_file
+image_file = 'left.jpg' # args.image_file
 
 predictor_path = 'shape_predictor_68_face_landmarks.dat' # sys.argv[1]
 
