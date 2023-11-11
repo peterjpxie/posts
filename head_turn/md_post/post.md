@@ -7,32 +7,27 @@ Photo by [Prince Akachi](https://unsplash.com/@princearkman?utm_source=medium&ut
 I have been using bank and payment app face authentication for years where you will be asked to open mouth, turn your head etc. to authenticate you don't hack with a static photo.
 I figured out [how to detect mouth open](https://medium.com/towards-data-science/how-to-detect-mouth-open-for-face-login-84ca834dff3b) years ago, but how to detect head had puzzled me for years until recently the idea came to my mind all of a sudden and it is that simple, as shown above, once you know it. Depending on the face landmanks detection library you use, you can also use this method: When turned left, you show your right ear and hide the left one, vise versa.
 
-To start with, we will be using two Python libraries, namely `dlib` and `face_recognition`, to help detect face landmarks and analyze them to infer head orientation. 
-
-[dlib](https://github.com/davisking/dlib) is an open source C++ library for "making real world machine learning and data analysis applications" and it is known for the production ready face detection and recognition. `dlib` also provides Python interface but `face_recognition` wraps it up in a nicer one to help you download the model file automatically and group face landmarks into facial features like eyes, nose, mouth, chin etc.
-
-## Algorithm
-
-3. **Calculate Distances**: Implement a function to calculate the Euclidean distance between two points. Use this to find the distances from the points at the top of the right and left chin to the top of the nose.
-
-    Formula: `Distance = sqrt((x2 - x1)² + (y2 - y1)²)`
-
-4. **Compare Distances**: If the distance on one side is significantly larger than on the other, conclude that the head is turned towards the shorter distance.
-
+To start with, we will be using two Python libraries, namely `dlib` and `face_recognition`, to help detect face landmarks and analyze them to infer head orientation.
 
 ## Setting Up the Environment
 
-Before you can detect the head turn, you'll need to have the necessary libraries installed. You'll need `dlib`, a toolkit for making real-world machine learning and data analysis applications, and `face_recognition`, a library that simplifies facial recognition processes.
+Before you can detect the head turn, you'll need to have the necessary libraries installed. You'll need [dlib](https://github.com/davisking/dlib), an open source toolkit in C++ for making real-world machine learning and data analysis applications including face detection and recognition, and [face_recognition](https://github.com/ageitgey/face_recognition), a dlib wrapper library that simplifies facial recognition processes and help you download the model file automatically and group face landmarks into facial features like eyes, nose, mouth, chin etc.
 
 Install them using pip:
 
 ```sh
-pip install dlib
-pip install face_recognition
+pip3 install dlib
+pip3 install face_recognition
+pip3 install Pillow
 ```
 
+**Notes:**
+1. dlib install will take 10-15 minutes as it will build the C++ library on real-time. And dlib python package provide Python interface as well, you don't have to use face_recognition for production deployment, refer to this [dlib only example](http://dlib.net/face_landmark_detection.py.html) for face landmarks detection.
+2. We install Pillow for image drawing, not required for production deployment.
+
 ## Understanding the Code
-> Talk
+
+![Talk is cheap](images/Quotefancy-talk-is-cheap.jpg)
 
 ```python
 #!/usr/bin/env python
@@ -143,6 +138,8 @@ The provided Python code describes a simple yet effective algorithm based on fac
 5. **Displaying the Result**: Use `Pillow` (PIL fork) library to draw on the image, highlighting pertinent landmarks. Add text to label the detected head orientation (turned right, turned left, facing straight).
 
 6. **Save the Result**: Save the modified image to the disk for review.
+
+
 
 ## Running the Script
 
