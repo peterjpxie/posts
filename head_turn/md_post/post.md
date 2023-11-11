@@ -28,6 +28,7 @@ pip3 install Pillow
 ## Understanding the Code
 
 ![Talk is cheap](images/Quotefancy-talk-is-cheap.jpg)
+Photo by [Prince Akachi](https://unsplash.com/@princearkman?utm_source=medium&utm_medium=referral) and [🇸🇮 Janko Ferlič](https://unsplash.com/@itfeelslikefilm?utm_source=medium&utm_medium=referral) on [Quotefancy](https://quotefancy.com/)
 
 ```python
 #!/usr/bin/env python
