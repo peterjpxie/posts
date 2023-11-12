@@ -161,9 +161,11 @@ Facial landmark detection serves as a powerful tool for understanding more about
 ## Acknowledgement
 If you're using this article in your research or applications, please cite using this BibTeX:
 
+```
 @article{xie2023detectheadturn,
   title={How to Detect Head Turn with Face Landmarks},
   author={Xie, Peter Jiping},
   year={2023},
   contact={peter.jp.xie@gmail.com}
 }
+```
