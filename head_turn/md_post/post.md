@@ -1,4 +1,6 @@
 # How to Detect Head Turn with Face Landmarks
+TODO: Audio
+
 ![Featured picture](images/post_featured_picture.png)
 Photo by [Prince Akachi](https://unsplash.com/@princearkman?utm_source=medium&utm_medium=referral) and [🇸🇮 Janko Ferlič](https://unsplash.com/@itfeelslikefilm?utm_source=medium&utm_medium=referral) on Unsplash
 
@@ -28,7 +30,7 @@ pip3 install Pillow
 ## Understanding the Code
 
 ![Talk is cheap](images/Quotefancy-talk-is-cheap.jpg)
-Photo by [Prince Akachi](https://unsplash.com/@princearkman?utm_source=medium&utm_medium=referral) and [🇸🇮 Janko Ferlič](https://unsplash.com/@itfeelslikefilm?utm_source=medium&utm_medium=referral) on [Quotefancy](https://quotefancy.com/)
+Photo on [Quotefancy](https://quotefancy.com/)
 
 ```python
 #!/usr/bin/env python
@@ -155,3 +157,13 @@ This command will generate an output image with the facial landmarks highlighted
 ## Conclusion
 
 Facial landmark detection serves as a powerful tool for understanding more about an individual's head orientation at a given moment. By analyzing the relative sizes of the chin regions, we can accurately predict the direction of a person's head turn. Utilizing a combination of `dlib` and `face_recognition` libraries simplifies the process, allowing us to build intelligent systems that can interact with humans more naturally.
+
+## Acknowledgement
+If you're using this article in your research or applications, please cite using this BibTeX:
+
+@article{xie2023detectheadturn,
+  title={How to Detect Head Turn with Face Landmarks},
+  author={Xie, Peter Jiping},
+  year={2023},
+  contact={peter.jp.xie@gmail.com}
+}
