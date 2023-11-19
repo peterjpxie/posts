@@ -1,8 +1,7 @@
 # How to Detect Head Turn with Face Landmarks
-TODO: Audio
 
 ![Featured picture](images/post_featured_picture.png)
-Photo by [Prince Akachi](https://unsplash.com/@princearkman?utm_source=medium&utm_medium=referral) and [🇸🇮 Janko Ferlič](https://unsplash.com/@itfeelslikefilm?utm_source=medium&utm_medium=referral) on Unsplash
+Photo by [Prince Akachi](https://unsplash.com/@princearkman?utm_source=medium&utm_medium=referral) and [🇸🇮 Janko Ferlič](https://unsplash.com/@itfeelslikefilm?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com/)
 
 **TLDR**: When turned left, the right chin is bigger than left one, vice versa. Use the distance between the right / left chin top and the nose top to measure the right / left chin size.
 
@@ -24,8 +23,11 @@ pip3 install Pillow
 ```
 
 **Notes:**
-1. dlib install will take 10-15 minutes as it will build the C++ library on real-time. And dlib python package provide Python interface as well, you don't have to use face_recognition for production deployment, refer to this [dlib only example](http://dlib.net/face_landmark_detection.py.html) for face landmarks detection.
-2. We install Pillow for image drawing, not required for production deployment.
+1. dlib install will take 10-15 minutes as it will build the C++ library on real-time. On Widnows, you need to install Visual Studio with C++ App Development selected first.
+
+2. dlib python package provides Python interface as well, you don't have to use face_recognition for production deployment, refer to this [dlib only example](http://dlib.net/face_landmark_detection.py.html) for face landmarks detection.
+
+3. We install Pillow for image drawing, not required for production deployment.
 
 ## Understanding the Code
 
