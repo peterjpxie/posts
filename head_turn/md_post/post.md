@@ -12,7 +12,7 @@ To start with, we will be using two Python libraries, namely `dlib` and `face_re
 
 ## Setting Up the Environment
 
-Before you can detect the head turn, you'll need to have the necessary libraries installed. You'll need [dlib](https://github.com/davisking/dlib), an open source toolkit in C++ for making real-world machine learning and data analysis applications including face detection and recognition, and [face_recognition](https://github.com/ageitgey/face_recognition), a dlib wrapper library that simplifies facial recognition processes and help you download the model file automatically and group face landmarks into facial features like eyes, nose, mouth, chin etc.
+Before you can detect the head turn, you'll need to have the necessary libraries installed. You'll need [dlib](https://github.com/davisking/dlib), an open source toolkit in C++ for making real-world machine learning and data analysis applications including face detection and recognition, and [face_recognition](https://github.com/ageitgey/face_recognition), a dlib wrapper library that simplifies facial recognition processes and help you download the model file automatically and group face landmarks into facial features like eyes, nose, mouth and chin etc.
 
 Install them using pip:
 
@@ -23,11 +23,11 @@ pip3 install Pillow
 ```
 
 **Notes:**
-1. dlib install will take 10-15 minutes as it will build the C++ library on real-time. On Widnows, you need to install Visual Studio with C++ App Development selected first.
+1. dlib installation will take 10-15 minutes as it will build the C++ library on real-time. On Widnows, you need to install Visual Studio with C++ App Development selected first.
 
-2. dlib python package provides Python interface as well, you don't have to use face_recognition for production deployment, refer to this [dlib only example](http://dlib.net/face_landmark_detection.py.html) for face landmarks detection.
+2. dlib python package provides Python interface as well, so you don't have to use face_recognition for production deployment. Refer to this [dlib only example](http://dlib.net/face_landmark_detection.py.html) for face landmarks detection.
 
-3. We install Pillow for image drawing, not required for production deployment.
+3. We also install Pillow for image drawing, not required for production deployment.
 
 ## Understanding the Code
 
