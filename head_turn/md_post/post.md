@@ -52,7 +52,7 @@ args = argparser.parse_args()
 
 image_file = args.image_file
 
-# Load the jpg file into a numpy array
+# Load the image file into a numpy array
 image = face_recognition.load_image_file(image_file)
 
 # Find face landmarks of all the faces in the image
@@ -77,13 +77,9 @@ facial_features = [
     "bottom_lip",
 ]
 
-def point_distance(p1,p2):
-    """get distance of two points"""
-    return math.sqrt( (p1[0] - p2[0])**2 + (p1[1] - p2[1])**2 )
-
-# get landmarks of first face, assume there is only one face in the image
+# get landmarks of 1st face, assume there is only one face in the image
 face_landmarks = face_landmarks_list[0]
-# Let's trace out each facial feature in the image with a line!
+# Let's trace out each facial feature with a line!
 for facial_feature in facial_features:
     # print(f"{facial_feature} has {len(face_landmarks[facial_feature])} points: {face_landmarks[facial_feature]}")
     d.line(face_landmarks[facial_feature], width=5)
@@ -93,14 +89,18 @@ d.line(face_landmarks["chin"][-1:] + face_landmarks["nose_bridge"][:1], width=5,
 # draw right chin to nose top in red
 d.line(face_landmarks["chin"][:1] + face_landmarks["nose_bridge"][:1], width=5, fill=(255, 0, 0))
 
+def point_distance(p1, p2):
+    """get distance of two points"""
+    return math.sqrt( (p1[0] - p2[0])**2 + (p1[1] - p2[1])**2 )
+
 # right / left chin ratio
 left_chin_green = point_distance(face_landmarks["chin"][-1], face_landmarks["nose_bridge"][0])
 right_chin_red = point_distance(face_landmarks["chin"][0], face_landmarks["nose_bridge"][0])
 right_to_left_ratio = right_chin_red / left_chin_green
 left_to_right_ratio = left_chin_green / right_chin_red
 
-## Add the text to the image
-threshold = 1.3
+# Determine head turn
+threshold = 1.3  # customise your preference here
 if left_to_right_ratio > threshold:
     turned = "turned right"
     print(f"green / red = {left_to_right_ratio:.1f}, {turned}")
@@ -111,10 +111,11 @@ else:
     turned = "facing straight"
     print(f"red / green = {right_to_left_ratio:.1f}, {turned}")
 
+# Add the text to the image
 top, right, bottom, left = face_locations[0]
 position = (left, top)
 font_size = (right - left) // 6 # relative to face size
-font = ImageFont.truetype("arial.ttf", size=font_size)
+font = ImageFont.truetype("arial.ttf", size=font_size) # this is wondows font, try to use a different one or add a note to install this font on linux
 text_color = (0, 0, 255)  # RGB color
 d.text(position, turned, fill=text_color, font=font)
 
