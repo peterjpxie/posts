@@ -99,7 +99,7 @@ right_chin_red = point_distance(face_landmarks["chin"][0], face_landmarks["nose_
 right_to_left_ratio = right_chin_red / left_chin_green
 left_to_right_ratio = left_chin_green / right_chin_red
 
-# Determine head turn
+# Determine head turn!
 threshold = 1.3  # customise your preference here
 if left_to_right_ratio > threshold:
     turned = "turned right"
@@ -111,11 +111,11 @@ else:
     turned = "facing straight"
     print(f"red / green = {right_to_left_ratio:.1f}, {turned}")
 
-# Add the text to the image
+# Add text to the image for head turn orientation
 top, right, bottom, left = face_locations[0]
-position = (left, top)
+position = (left, top) # write text from face location top left
 font_size = (right - left) // 6 # relative to face size
-font = ImageFont.truetype("arial.ttf", size=font_size) # this is wondows font, try to use a different one or add a note to install this font on linux
+font = ImageFont.truetype("arial.ttf", size=font_size)
 text_color = (0, 0, 255)  # RGB color
 d.text(position, turned, fill=text_color, font=font)
 
@@ -126,9 +126,22 @@ pil_image.save(out_file)
 # pil_image.show()
 ```
 
-The provided Python code describes a simple yet effective algorithm based on facial landmarks to detect head orientation. It implies drawing lines from the top of the chin to the top of the nose and comparing their lengths to determine which direction the head is turned.
+The provided Python code describes a simple yet effective algorithm based on facial landmarks to detect head orientation. It implies drawing lines from the top of the chin on both sides to the top of the nose and comparing their lengths to determine which direction the head is turned.
 
-### Steps
+**Notes:**
+1.  `arial.ttf` is a Microsoft Windows font. If you run this script on Linux like Ubuntu, install the font as follows:
+```
+sudo apt install ttf-mscorefonts-installer
+sudo fc-cache -f
+
+# After that, check with:
+fc-match Arial
+
+# out:
+Arial.ttf: "Arial" "Regular"
+```
+
+### Steps Explanation
 
 1. **Parse Command-Line Arguments**: Use `argparse` to provide the script with the path to the input image containing the face you want to analyze.
 
