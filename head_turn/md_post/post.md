@@ -1,7 +1,8 @@
 # How to Detect Head Turn with Face Landmarks
 
 ![Featured picture](images/post_featured_picture.png)
-Photo by [Prince Akachi](https://unsplash.com/@princearkman?utm_source=medium&utm_medium=referral) and [🇸🇮 Janko Ferlič](https://unsplash.com/@itfeelslikefilm?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com/)
+
+Photo by [🇸🇮 Janko Ferlič](https://unsplash.com/@itfeelslikefilm?utm_source=medium&utm_medium=referral) and [Prince Akachi](https://unsplash.com/@princearkman?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com/)
 
 **TLDR**: When turned left, the right chin is bigger than left one, vice versa. Use the distance between the right / left chin top and the nose top to measure the right / left chin size.
 
@@ -165,10 +166,24 @@ Arial.ttf: "Arial" "Regular"
 Run the script by passing the image file as an argument:
 
 ```sh
-python detect_head_turn.py -i image_file.jpg
+python detect_head_turn.py -i your_image_file.jpg
 ```
 
 This command will generate an output image with the facial landmarks highlighted and the inferred head orientation labelled on the image.
+
+### Sample 1: Turn Left
+```sh
+python detect_head_turn.py -i left.jpg
+```
+
+**Source Image:**
+
+![Turned left image](images/left.jpg)
+
+Photo by [🇸🇮 Janko Ferlič](https://unsplash.com/@itfeelslikefilm?utm_source=medium&utm_medium=referral) 
+
+
+
 
 ## Conclusion
 
