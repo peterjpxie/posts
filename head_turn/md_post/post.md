@@ -142,7 +142,7 @@ fc-match Arial
 Arial.ttf: "Arial" "Regular"
 ```
 
-### Steps Explanation
+### Detailed Walkthrough
 
 1. **Parse Command-Line Arguments**: Use `argparse` to provide the script with the path to the input image containing the face you want to analyze.
 
