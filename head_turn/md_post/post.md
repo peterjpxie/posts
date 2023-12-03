@@ -146,20 +146,19 @@ Arial.ttf: "Arial" "Regular"
 
 1. **Parse Command-Line Arguments**: Use `argparse` to provide the script with the path to the input image containing the face you want to analyze.
 
-2. **Load and Process the Image**: Utilize the `face_recognition` library to load the image and detect the face landmarks.
+2. **Load and Process the Image**: Utilize the `face_recognition` library to load the image and detect the face location and landmarks grouped by facial features like chin, nose etc.
 
 3. **Calculate Distances**: Implement a function to calculate the Euclidean distance between two points. Use this to find the distances from the points at the top of the right and left chin to the top of the nose.
 
+    Given: Two points (x1, y1) and (x2, y2)
+
     Formula: `Distance = sqrt((x2 - x1)² + (y2 - y1)²)`
 
-
-4. **Compare Distances**: If the distance on one side is significantly larger than on the other, conclude that the head is turned towards the shorter distance.
+4. **Compare Distances**: If the distance on one side is significantly larger than on the other, conclude that the head is turned towards the shorter distance. For example, right chin distance is greater than left one, head is turned left.
 
 5. **Displaying the Result**: Use `Pillow` (PIL fork) library to draw on the image, highlighting pertinent landmarks. Add text to label the detected head orientation (turned right, turned left, facing straight).
 
 6. **Save the Result**: Save the modified image to the disk for review.
-
-
 
 ## Running the Script
 
@@ -182,14 +181,11 @@ python detect_head_turn.py -i left.jpg
 
 Photo by [🇸🇮 Janko Ferlič](https://unsplash.com/@itfeelslikefilm?utm_source=medium&utm_medium=referral) 
 
-
-
-
 ## Conclusion
 
 Facial landmark detection serves as a powerful tool for understanding more about an individual's head orientation at a given moment. By analyzing the relative sizes of the chin regions, we can accurately predict the direction of a person's head turn. Utilizing a combination of `dlib` and `face_recognition` libraries simplifies the process, allowing us to build intelligent systems that can interact with humans more naturally.
 
-## Acknowledgement
+## Citation
 If you're using this article in your research or applications, please cite using this BibTeX:
 
 ```
