@@ -180,12 +180,11 @@ python detect_head_turn.py -i left.jpg
 
 ![Turned left image](images/left.jpg)
 
-
 Photo by [🇸🇮 Janko Ferlič](https://unsplash.com/@itfeelslikefilm?utm_source=medium&utm_medium=referral) 
 
 ## Conclusion
 
-Facial landmark detection serves as a powerful tool for understanding more about an individual's head orientation at a given moment. By analyzing the relative sizes of the chin regions, we can accurately predict the direction of a person's head turn. Utilizing a combination of `dlib` and `face_recognition` libraries simplifies the process, allowing us to build intelligent systems that can interact with humans more naturally.
+Facial landmark detection serves as a powerful tool for understanding more about an individual's head orientation at a given moment. By analyzing the relative sizes of the chin regions, we can accurately predict the direction of a person's head turn. Utilizing a combination of `dlib` and `face_recognition` libraries simplifies the process, allowing us to build intelligent systems in a few lines of code.
 
 ## Citation
 If you're using this article in your research or applications, please cite using this BibTeX:
