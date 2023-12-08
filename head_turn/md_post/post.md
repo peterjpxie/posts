@@ -179,6 +179,7 @@ python detect_head_turn.py -i left.jpg
 
 ![Turned left image](images/left.jpg)
 
+
 Photo by [🇸🇮 Janko Ferlič](https://unsplash.com/@itfeelslikefilm?utm_source=medium&utm_medium=referral) 
 
 ## Conclusion
