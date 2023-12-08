@@ -124,7 +124,6 @@ d.text(position, turned, fill=text_color, font=font)
 out_file = "out_" + image_file
 print("saved to " + out_file)
 pil_image.save(out_file)
-# pil_image.show()
 ```
 
 The provided Python code describes a simple yet effective algorithm based on facial landmarks to detect head orientation. It implies drawing lines from the top of the chin on both sides to the top of the nose and comparing their lengths to determine which direction the head is turned.
@@ -156,7 +155,9 @@ Arial.ttf: "Arial" "Regular"
 
 4. **Compare Distances**: If the distance on one side is significantly larger than on the other, conclude that the head is turned towards the shorter distance. For example, right chin distance is greater than left one, head is turned left.
 
-5. **Displaying the Result**: Use `Pillow` (PIL fork) library to draw on the image, highlighting pertinent landmarks. Add text to label the detected head orientation (turned right, turned left, facing straight).
+5. **Displaying the Result**: Use `Pillow` (PIL fork) library to draw on the image, highlighting relevant landmarks. Add text to label the detected head orientation (turned right, turned left, facing straight). 
+
+    Some tricks are used here to set label font size relative to the face size and write from face location top left.
 
 6. **Save the Result**: Save the modified image to the disk for review.
 
