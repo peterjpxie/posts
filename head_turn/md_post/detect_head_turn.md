@@ -1,6 +1,6 @@
 # How to Detect Head Turn with Face Landmarks
 
-![Featured picture](images/post_featured_picture.png)
+![Featured picture](images/head_turn_post_featured_picture.png)
 
 Photo by [🇸🇮 Janko Ferlič](https://unsplash.com/@itfeelslikefilm?utm_source=medium&utm_medium=referral) and [Prince Akachi](https://unsplash.com/@princearkman?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com/)
 
