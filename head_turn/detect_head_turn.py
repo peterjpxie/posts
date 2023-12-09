@@ -12,11 +12,11 @@ import face_recognition
 import argparse
 import math
 
-argparser = argparse.ArgumentParser("Detect head turn")
+argparser = argparse.ArgumentParser(description="Detect head turn")
 argparser.add_argument(
-    "-i",
-    "--image_file",
-    default="left.jpg",
+    "image_file",
+    # nargs="?",
+    # default="left.jpg",
     help="Image file to detect head turn",
 )
 args = argparser.parse_args()

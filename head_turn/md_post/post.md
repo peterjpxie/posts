@@ -42,11 +42,9 @@ import face_recognition
 import argparse
 import math
 
-argparser = argparse.ArgumentParser("Detect head turn")
+argparser = argparse.ArgumentParser(description="Detect head turn")
 argparser.add_argument(
-    "-i",
-    "--image_file",
-    default="left.jpg",
+    "image_file",
     help="Image file to detect head turn",
 )
 args = argparser.parse_args()
@@ -128,8 +126,7 @@ pil_image.save(out_file)
 
 The provided Python code describes a simple yet effective algorithm based on facial landmarks to detect head orientation. It implies drawing lines from the top of the chin on both sides to the top of the nose and comparing their lengths to determine which direction the head is turned.
 
-**Notes:**
-1.  `arial.ttf` is a Microsoft Windows font. If you run this script on Linux like Ubuntu, install the font as follows:
+**Notes:** `arial.ttf` is a Microsoft Windows font. If you run this script on Linux like Ubuntu, install the font as follows:
 ```
 sudo apt install ttf-mscorefonts-installer
 sudo fc-cache -f
@@ -166,14 +163,19 @@ Arial.ttf: "Arial" "Regular"
 Run the script by passing the image file as an argument:
 
 ```sh
-python detect_head_turn.py -i your_image_file.jpg
+python detect_head_turn.py your_image_file.jpg
 ```
 
 This command will generate an output image with the facial landmarks highlighted and the inferred head orientation labelled on the image.
 
 ### Sample 1: Turn Left
 ```sh
-python detect_head_turn.py -i left.jpg
+python detect_head_turn.py left.jpg
+
+Out:
+ound 1 face(s) in this photograph.
+red / green = 2.9, turned left
+saved to out_left.jpg
 ```
 
 **Source Image:**
@@ -181,6 +183,27 @@ python detect_head_turn.py -i left.jpg
 ![Turned left image](images/left.jpg)
 
 Photo by [🇸🇮 Janko Ferlič](https://unsplash.com/@itfeelslikefilm?utm_source=medium&utm_medium=referral) 
+
+**Output Image:**
+
+![Turned left image](images/out_left.jpg)
+
+### Sample 2: Face Straight
+```sh
+python detect_head_turn.py straight.jpg
+
+Out:
+Found 1 face(s) in this photograph.
+red / green = 1.0, facing straight
+saved to out_straight.jpg
+```
+
+**Output Image:**
+
+![Turned left image](images/out_straight.jpg)
+
+Source Photo by [Joseph Gonzalez](https://unsplash.com/@miracletwentyone?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)
+
 
 ## Conclusion
 
