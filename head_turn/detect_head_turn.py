@@ -8,7 +8,7 @@ Use the distance between the right / left chin top and the nose top to measure t
 Usage: python detect_head_turn.py -i image_file
 """
 from PIL import Image, ImageDraw, ImageFont
-import face_recognition
+import face_recognition # 2.5s to import, I think loading the model takes time
 import argparse
 import math
 

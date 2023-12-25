@@ -1,7 +1,20 @@
+#!/usr/bin/env python
 from PIL import Image
-import face_recognition
+import face_recognition # 2.5s to import, I think loading the model takes time
+import argparse
 
-image_file='obama.jpg'
+argparser = argparse.ArgumentParser(description="find faces in picture")
+argparser.add_argument(
+    "image_file",
+    # nargs="?",
+    # default="left.jpg",
+    help="Image file to detect head turn",
+)
+args = argparser.parse_args()
+
+image_file = args.image_file
+
+# image_file='left.jpg'
 # Load the jpg file into a numpy array
 image = face_recognition.load_image_file(image_file)
 
@@ -19,4 +32,4 @@ for face_location in face_locations:
     # You can access the actual face itself like this:
     face_image = image[top:bottom, left:right]
     pil_image = Image.fromarray(face_image)
-    pil_image.show()
+    # pil_image.show()
