@@ -47,7 +47,7 @@ for face_landmarks in face_landmarks_list:
 
     # Let's trace out each facial feature in the image with a line!
     for facial_feature in facial_features:
-        # note: left_eye here is the eye on the left side of the image, not the person's left eye,
+        # note: left_eye here is the eye on the left side of the image when you look at it, not the person's left eye,
         # depends on whether the image is flipped(mobile front camera) or not
         if facial_feature in ['left_eye']:
             d.line(face_landmarks[facial_feature], width=5)
