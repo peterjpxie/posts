@@ -15,7 +15,7 @@ args = argparser.parse_args()
 
 image_file = args.image_file
 
-def get_eye_height(eye):
+def get_eye_height(eye: list):
     """ eye open height
     
     eye: list of eye points (6)
@@ -24,23 +24,21 @@ def get_eye_height(eye):
     Algorithm: average of distance of two near points up and down, points are 1, 5 and 2, 4
     """
     sum=0
-    for i in [2,3,4]:
-        # distance of two near points up and down
-        distance = math.sqrt( (lip[i][0] - lip[12-i][0])**2 + (lip[i][1] - lip[12-i][1])**2 )
-        sum += distance
+    # distance of two near points up and down
+    distance_1_5 = math.sqrt( (eye[1][0] - eye[5][0])**2 + (eye[1][1] - eye[5][1])**2)
+    sum += distance_1_5
+    distance_2_4 = math.sqrt( (eye[2][0] - eye[2][0])**2 + (eye[4][1] - eye[4][1])**2)
+    sum += distance_2_4
     return sum / 2
 
-def get_eye_width(eye):
-    sum=0
-    for i in [8,9,10]:
-        # distance of two near points up and down
-        distance = math.sqrt( (top_lip[i][0] - bottom_lip[18-i][0])**2 + (top_lip[i][1] - bottom_lip[18-i][1])**2 )
-        sum += distance
-    return sum / 3
+def get_eye_width(eye: list):
+    '''distance of point 0 and 3'''
+    return math.sqrt( (eye[0][0] - eye[3][0])**2 + (eye[0][1] - eye[3][1])**2)
 
-def is_mouth_open(image):
-    """
-    image is numpy array
+def is_eye_open(eye: list):
+    """ Check if eye is open
+    
+    eye: list of eye points (6)
     """
     # Find all facial features in all the faces in the image
     face_landmarks_list = face_recognition.face_landmarks(image)
